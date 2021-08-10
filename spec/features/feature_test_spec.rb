@@ -10,10 +10,10 @@ end
 feature '/bookmarks route' do
   scenario 'views all bookmarks' do
     visit('/bookmarks')
-    expect(page).to have_content("http://localhost:4567/")
-    expect(page).to have_content("nba.com")
-    expect(page).to have_content("theguardian.co.uk")
-    expect(page).to have_content("bbc.co.uk/football")
+    expect(page).to have_content("http://www.makersacademy.com")
+    expect(page).to have_content("http://www.destroyallsoftware.com")
+    expect(page).to have_content("http://www.google.com")
+
 
   end  
 end

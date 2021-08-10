@@ -5,10 +5,9 @@ describe Bookmark do
     it "returns all bookmarks saved" do
       bookmarks = Bookmark.all
 
-      expect(bookmarks).to include("http://localhost:4567/")
-      expect(bookmarks).to include("nba.com")
-      expect(bookmarks).to include("theguardian.co.uk")
-      expect(bookmarks).to include("bbc.co.uk/football")
+      expect(bookmarks).to include "http://www.makersacademy.com"
+      expect(bookmarks).to include "http://www.destroyallsoftware.com"
+      expect(bookmarks).to include "http://www.google.com"
     end  
   end
 end  
