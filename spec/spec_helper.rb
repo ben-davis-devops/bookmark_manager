@@ -13,13 +13,22 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+require_relative './setup_test_database'
+
+ENV['ENVIRONMENT'] = 'test'
 ENV['RACK_ENV'] = 'test'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
+
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 RSpec.configure do |config|
-
-  require 'capybara'
-  require 'capybara/rspec'
-  require 'rspec'
 
   Capybara.app = BookmarkManager
 
@@ -27,7 +36,7 @@ RSpec.configure do |config|
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
   config.expect_with :rspec do |expectations|
-
+    
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods
     # defined using `chain`, e.g.:
